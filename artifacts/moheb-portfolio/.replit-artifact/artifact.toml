@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Moheb Yasser Portfolio"
+description = "A polished developer portfolio for Moheb Yasser, showcasing Flutter engineering, the Cosmic I Book e-library project, technical skills, and a direct contact path for prospective collaborators and clients."
+version = "1.0.0"
+id = "artifacts/moheb-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24900
+
+[services.development]
+run = "pnpm --filter @workspace/moheb-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/moheb-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/moheb-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24900"
+BASE_PATH = "/"

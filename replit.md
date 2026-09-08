@@ -1,6 +1,6 @@
-# [Project name]
+# Moheb Yasser Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A responsive single-page developer portfolio for Moheb Yasser, featuring his Flutter engineering work and Cosmic I Book case study.
 
 ## Run & Operate
 
@@ -22,15 +22,19 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/moheb-portfolio/src/App.tsx` — portfolio content, navigation, contact form behavior, and page structure
+- `artifacts/moheb-portfolio/src/index.css` — site theme, responsive layout utilities, animation, and visual system
+- `artifacts/moheb-portfolio/.replit-artifact/artifact.toml` — artifact routing and managed web workflow
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The portfolio is frontend-only; the contact form prepares a `mailto:` message and shows in-page feedback instead of requiring a backend.
+- Project gallery frames intentionally use labeled placeholders until the real Cosmic I Book screenshots are supplied.
+- The site uses anchor-based single-page navigation with an active-section observer so the fixed navigation remains useful while scrolling.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The site introduces Moheb's positioning, engineering philosophy, Cosmic I Book project, technical toolkit, and contact links in a focused presentation for potential collaborators and clients.
 
 ## User preferences
 
