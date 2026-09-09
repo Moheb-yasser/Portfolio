@@ -15,7 +15,33 @@ const usp =
 const programmingLanguages = ['Dart', 'Java', 'C++', 'Python', 'JavaScript', 'PHP', 'SQL', 'HTML5', 'CSS3'];
 const frameworksAndTools = ['Flutter', 'Firebase Auth', 'Cloud Firestore', 'Git', 'GitHub', 'Android Studio', 'VS Code'];
 const projectBadges = ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'Android Studio', 'Git/GitHub'];
-const galleryItems = ['Auth screens', 'Splash screen', 'Book catalog', 'Search', 'Reading collection management'];
+const galleryItems = [
+  {
+    label: 'Splash screen',
+    src: '/portfolio-project-images/splash-screen.png',
+    alt: 'Cosmic I Book splash screen with a glowing purple book mark and galaxy background',
+  },
+  {
+    label: 'Auth screen',
+    src: '/portfolio-project-images/auth-screen.png',
+    alt: 'Cosmic I Book create account screen with rounded form fields over a starry purple background',
+  },
+  {
+    label: 'Auth loading',
+    src: '/portfolio-project-images/auth-loading.png',
+    alt: 'Cosmic I Book account creation loading state with a purple animated spinner',
+  },
+  {
+    label: 'Book catalog',
+    src: '/portfolio-project-images/book-catalog.png',
+    alt: 'Cosmic Archive book catalog showing a two-column collection of book covers',
+  },
+  {
+    label: 'Search feature',
+    src: '/portfolio-project-images/search-feature.png',
+    alt: 'Cosmic Archive filtered search view showing Atomic Habits for the query atom',
+  },
+];
 const navigationItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
@@ -123,6 +149,10 @@ function Home() {
       <section id="home" className="relative flex min-h-[760px] items-end overflow-hidden pb-20 pt-36 md:min-h-[860px] md:pb-28" data-testid="section-home">
         <div className="hero-grid absolute inset-0" />
         <div className="hero-glow" />
+         {/* Portrait drop-in: add /portfolio-project-images/profile.jpg in the hero avatar frame below when ready. */}
+         <div className="hero-profile-frame absolute bottom-28 right-[7vw] z-[1] hidden lg:grid" aria-label="Profile Photo Placeholder">
+           <span>Profile Photo<br />Placeholder</span>
+         </div>
         <div className="container-wide relative z-[1]">
           <div className="eyebrow reveal delay-1">Flutter developer / software engineering student</div>
           <h1 className="hero-title display mt-8 max-w-5xl font-semibold reveal delay-2" data-testid="text-hero-title">
@@ -157,6 +187,7 @@ function Home() {
             <div className="section-label">01 / About me</div>
             <h2 className="section-title display mt-7 max-w-md font-medium">About Me</h2>
             <div className="profile-card mt-12">
+               {/* Portrait drop-in: add the image at /portfolio-project-images/profile.jpg when ready. */}
               <div className="profile-placeholder"><span>Profile Photo Placeholder</span></div>
               <div className="profile-card-meta">
                 <span className="mono text-[10px] uppercase tracking-[.12em] text-[#7b91aa]">Based in Egypt</span>
@@ -199,13 +230,11 @@ function Home() {
           <div className="grid lg:grid-cols-[1.03fr_.97fr]">
             <div className="project-visual flex items-center justify-center gap-2 px-5 py-16 sm:gap-4 sm:px-10">
               {galleryItems.map((item, index) => (
-                <div key={item} className={`device ${index === 0 || index === 4 ? 'hidden sm:block' : ''}`} data-testid={`frame-gallery-${index}`}>
+                 <div key={item.src} className={`device ${index === 0 || index === 4 ? 'hidden sm:block' : ''}`} data-testid={`frame-gallery-${index}`}>
                   <div className="device-screen">
-                    <div className="screen-mark" />
-                    <div className="screen-lines" />
-                    <div className="mt-5 h-2 w-12 rounded bg-[#d8eefa]/15" />
+                     <img src={item.src} alt={item.alt} loading="lazy" />
                   </div>
-                  <div className="device-caption">{item}</div>
+                   <div className="device-caption">{item.label}</div>
                 </div>
               ))}
               <div className="absolute bottom-5 left-6 mono text-[9px] uppercase tracking-[.15em] text-[#5f7992]">Cosmic I Book / interface study</div>

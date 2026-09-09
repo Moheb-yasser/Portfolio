@@ -1,0 +1,30 @@
+Act as an elite frontend web designer, full-stack architect, and senior UI/UX engineer. Build and configure a fully responsive, high-performance professional developer portfolio website using React, Tailwind CSS, and Vite. Ensure it is optimized for seamless display across mobile phones, tablets, and desktop viewports.
+
+Design System & Layout Framework:
+- Style: Deep developer slate / dark mode background with electric blue accents, crisp white typography, and subtle glowing highlight boundaries.
+- Structure: Single-page layout with a sticky navigation bar (Home, About, Projects, Skills, Contact).
+
+Content & Asset Integration Architecture:
+1. Hero Section:
+   - Tagline: "I build high-performance, modern Flutter applications that bridge the gap between stunning visual aesthetics and frictionless user experience. Drawing from complex projects like a dynamic e-library with multi-state form validation and real-time cloud sync, I ensure your users never feel lost—delivering high-reliability mobile solutions that startups and growing businesses can trust from day one."
+   - Primary Call to Action: "View Cosmic Library" | Secondary: "Get in Touch"
+   - Personal Photo Integration Instructions: Provide a clean circular avatar frame in the Hero code. Explicitly comment the exact file path and line numbers where the developer must manually drop their portrait photo (e.g., inside public/portfolio-project-images/profile.jpg).
+
+2. About Me Section:
+   - Bio: "Hello I'am Moheb Yasser. I am a Flutter Developer and a Software Engineering student at Modern Academy, Graduation: May 2028. I believe an application can have the cleanest code and the most stunning modern theme in the world, but if the user feels lost, the system has failed. That is why my core philosophy as a developer is rooted in empathy and proactive UX guidance. When I built Cosmic I Book—a dynamic mobile e-library featuring real-time cloud sync and document rendering—I focused heavily on designing intuitive UI flows, custom floating error validation bubbles, and understandable hints that guide the user every step of the way. If a user doesn't instantly know what to do next, the code isn't finished yet. Behind every user-friendly interface is a foundation of rigorous engineering discipline. As a Computer Science student at Modern Academy with a 3.44 GPA, I ground my development work in core computer science theory. However, I believe my true technical edge comes from problem-solving: having solved over 117+ algorithmic problems in C++ on CodeForces, I approach every mobile architecture challenge, state-management hurdle, and database pipeline with analytical precision and high reliability. Whether you are a startup or a growing company looking to turn a complex idea into a high-performance, user-centric mobile application, I am here to deliver. Ready to start a project? Let's connect! Send me an email at mohebyasser280@gmail.com with your project vision."
+
+3. Featured Project Section (Cosmic Library Exclusive):
+   - Project Details: Cosmic I Book — Mobile E-Library (Co-Developer, Feb 2026 – Apr 2026). Engineered using Flutter, Dart, Firebase Auth, Cloud Firestore, Android Studio, and Git/GitHub. Built collaboratively by Menna Hamada, Moheb Yasser, and Hussain Farooq. Repository: https://github.com/Moheb-yasser/cosmic-library.
+   - Interactive Project Screenshot Gallery: Implement a multi-device mockup carousel or grid showcasing the exact project UI screenshots provided in the public folder (`/portfolio-project-images/`):
+     - Splash Screen (`1_2.jpg`)
+     - Auth Screen (`1.1_2.jpg` / loading state `1.loading.jpg`)
+     - Book Catalog (`3_2.png`)
+     - Search Feature (`6_2.png`)
+     - Reading Collection & Details View
+   - Explicitly write clean code mapping each screenshot file from the `public/portfolio-project-images/` folder into the component state with descriptive alt text and clean CSS borders.
+
+4. Skills Section:
+   - Categorize cleanly into Programming Languages (Dart, Java, C++, Python, JavaScript, PHP, SQL, HTML5, CSS3) and Frameworks/Tools (Flutter, Firebase Auth, Cloud Firestore, Git, GitHub, Android Studio, VS Code).
+
+5. Contact Section:
+   - Display email (mohebyasser280@gmail.com), LinkedIn (https://www.linkedin.com/in/moheb-yasser), and GitHub (https://github.com/Moheb-yasser). Include a functional contact form. Completely exclude any phone number fields.
