@@ -185,11 +185,12 @@ function Home() {
             <h2 className="section-title display mt-7 max-w-md font-medium">About Me</h2>
             <div className="profile-card mt-12">
                {/* Portrait drop-in: add the image at /portfolio-project-images/profile.jpg when ready. */}
-<img
+{/* <img
   className="profile-placeholder"
   src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpg`}
   alt="Moheb Yasser"
-/>              <div className="profile-card-meta">
+/>               */}
+              <div className="profile-card-meta">
                 <span className="mono text-[10px] uppercase tracking-[.12em] text-[#7b91aa]">Based in Egypt</span>
                 <span className="mono text-[10px] uppercase tracking-[.12em] text-[#55c9ff]">Available for select work</span>
               </div>
