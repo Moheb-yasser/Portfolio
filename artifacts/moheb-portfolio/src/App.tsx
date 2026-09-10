@@ -150,9 +150,6 @@ function Home() {
         <div className="hero-grid absolute inset-0" />
         <div className="hero-glow" />
          {/* Portrait drop-in: add /portfolio-project-images/profile.jpg in the hero avatar frame below when ready. */}
-         <div className="hero-profile-frame absolute bottom-28 right-[7vw] z-[1] hidden lg:grid" aria-label="Profile Photo Placeholder">
-           <span>Profile Photo<br />Placeholder</span>
-         </div>
         <div className="container-wide relative z-[1]">
           <div className="eyebrow reveal delay-1">Flutter developer / software engineering student</div>
           <h1 className="hero-title display mt-8 max-w-5xl font-semibold reveal delay-2" data-testid="text-hero-title">
