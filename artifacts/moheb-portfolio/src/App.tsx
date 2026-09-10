@@ -190,6 +190,7 @@ function Home() {
    src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpg`}
    alt="Moheb Yasser"
  />               }
+              </div>
           </div>
           <div className="self-end reveal-on-scroll md:pb-2">
             <p className="display text-2xl leading-[1.35] tracking-[-.035em] text-[#dbe8f4] md:text-3xl" data-testid="text-about-intro">
