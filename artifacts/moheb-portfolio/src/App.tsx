@@ -185,11 +185,11 @@ function Home() {
             <h2 className="section-title display mt-7 max-w-md font-medium">About Me</h2>
             <div className="profile-card mt-12">
                {/* Portrait drop-in: add the image at /portfolio-project-images/profile.jpg when ready. */}
-{ <img
-  className="profile-placeholder"
-  src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpg`}
-  alt="Moheb Yasser"
-/>               }
+// { <img
+//   className="profile-placeholder"
+//   src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpg`}
+//   alt="Moheb Yasser"
+// />               }
             </div>
           </div>
           <div className="self-end reveal-on-scroll md:pb-2">
