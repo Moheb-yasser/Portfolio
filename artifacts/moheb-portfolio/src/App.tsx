@@ -190,10 +190,6 @@ function Home() {
   src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpg`}
   alt="Moheb Yasser"
 />               }
-              <div className="profile-card-meta">
-                <span className="mono text-[10px] uppercase tracking-[.12em] text-[#7b91aa]">Based in Egypt</span>
-                <span className="mono text-[10px] uppercase tracking-[.12em] text-[#55c9ff]">Available for select work</span>
-              </div>
             </div>
           </div>
           <div className="self-end reveal-on-scroll md:pb-2">
