@@ -18,27 +18,27 @@ const projectBadges = ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'A
 const galleryItems = [
   {
     label: 'Splash screen',
-    src: '/portfolio-project-images/splash-screen.png',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/splash-screen.png`,
     alt: 'Cosmic I Book splash screen with a glowing purple book mark and galaxy background',
   },
   {
     label: 'Auth screen',
-    src: '/portfolio-project-images/auth-screen.png',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/auth-screen.png`,
     alt: 'Cosmic I Book create account screen with rounded form fields over a starry purple background',
   },
   {
     label: 'Auth loading',
-    src: '/portfolio-project-images/auth-loading.png',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/auth-loading.png`,
     alt: 'Cosmic I Book account creation loading state with a purple animated spinner',
   },
   {
     label: 'Book catalog',
-    src: '/portfolio-project-images/book-catalog.png',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/book-catalog.png`,
     alt: 'Cosmic Archive book catalog showing a two-column collection of book covers',
   },
   {
     label: 'Search feature',
-    src: '/portfolio-project-images/search-feature.png',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/search-feature.png`,
     alt: 'Cosmic Archive filtered search view showing Atomic Habits for the query atom',
   },
 ];
