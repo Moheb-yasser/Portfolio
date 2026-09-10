@@ -117,7 +117,7 @@ a { color: inherit; text-decoration: none; }
 .profile-card::before { content: ""; position: absolute; width: 250px; height: 250px; top: -100px; right: -70px; border-radius: 50%; border: 1px solid rgba(85, 201, 255, .28); box-shadow: 0 0 80px rgba(85, 201, 255, .11); }
 .profile-placeholder { position: absolute; inset: 22px; display: grid; place-items: center; border: 1px dashed rgba(126, 163, 191, .4); background: linear-gradient(145deg, rgba(69, 96, 123, .12), rgba(9, 15, 24, .52)); }
 .profile-placeholder span { color: #80a0bb; font-family: var(--app-font-mono); font-size: .71rem; letter-spacing: .08em; transform: rotate(-12deg); }
-img.profile-placeholder { object-fit: cover; }
+img.profile-placeholder { object-fit: fit; }
 .profile-card-meta { position: absolute; left: 22px; right: 22px; bottom: 20px; display: flex; justify-content: space-between; border-top: 1px solid rgba(139, 159, 183, .18); padding-top: 14px; }
 
 .project-panel { border: 1px solid rgba(139, 159, 183, .18); background: #141b28; }
