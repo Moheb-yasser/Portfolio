@@ -5,27 +5,9 @@ import { defineConfig } from 'vite';
 
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
-const rawPort = process.env.PORT;
-
-if (!rawPort) {
-  throw new Error(
-    'PORT environment variable is required but was not provided.',
-  );
-}
-
-const port = Number(rawPort);
-
-if (Number.isNaN(port) || port <= 0) {
-  throw new Error(`Invalid PORT value: "${rawPort}"`);
-}
-
-const basePath = process.env.BASE_PATH;
-
-if (!basePath) {
-  throw new Error(
-    'BASE_PATH environment variable is required but was not provided.',
-  );
-}
+// Safely resolve PORT and BASE_PATH with fallbacks for GitHub Actions CI
+const port = process.env.PORT ? Number(process.env.PORT) : 5000;
+const basePath = process.env.BASE_PATH || '/Portfolio/';
 
 export default defineConfig({
   base: basePath,
