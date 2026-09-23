@@ -4,10 +4,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import NotFound from '@/pages/not-found';
-import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
+
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
 
 const usp =
   'I architect Flutter applications with clean, scalable state management — not just screens that look good, but systems that hold up under real users and real data. From Firebase-backed auth to real-time cloud sync, I ship mobile products startups can trust from day one.';
@@ -30,33 +35,35 @@ const projectHighlights = [
     body: 'Production-grade in-app reading via syncfusion_flutter_pdfviewer, paired with real-time search filtering for fast, seamless catalog discovery.',
   },
 ];
+
 const galleryItems = [
   {
     label: 'Splash screen',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/splash-screen.png`,
+    src: getAssetPath('portfolio-project-images/splash-screen.png'),
     alt: 'Cosmic I Book splash screen with a glowing purple book mark and galaxy background',
   },
   {
     label: 'Auth screen',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/auth-screen.png`,
+    src: getAssetPath('portfolio-project-images/auth-screen.png'),
     alt: 'Cosmic I Book create account screen with rounded form fields over a starry purple background',
   },
   {
     label: 'Auth loading',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/auth-loading.png`,
+    src: getAssetPath('portfolio-project-images/auth-loading.png'),
     alt: 'Cosmic I Book account creation loading state with a purple animated spinner',
   },
   {
     label: 'Book catalog',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/book-catalog.png`,
+    src: getAssetPath('portfolio-project-images/book-catalog.png'),
     alt: 'Cosmic Archive book catalog showing a two-column collection of book covers',
   },
   {
     label: 'Search feature',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/search-feature.png`,
+    src: getAssetPath('portfolio-project-images/search-feature.png'),
     alt: 'Cosmic Archive filtered search view showing Atomic Habits for the query atom',
   },
 ];
+
 const navigationItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
@@ -200,7 +207,7 @@ function Home() {
             <div className="profile-card">
               <img
                 className="profile-placeholder"
-                src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpeg`}
+                src={getAssetPath('portfolio-project-images/profile.jpeg')}
                 alt="Moheb Yasser"
               />
             </div>
@@ -345,31 +352,11 @@ function Home() {
   );
 }
 
-function Router() {
-  return (
-    <RoutedErrorBoundary>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/:rest*" component={Home} />
-        <Route component={NotFound} />
-      </Switch>
-    </RoutedErrorBoundary>
-  );
-}
-
-function RoutedErrorBoundary({ children }: { children: ReactNode }) {
-  const [location] = useLocation();
-  return <ErrorBoundary resetKey={location}>{children}</ErrorBoundary>;
-}
-
 function App() {
-  const baseUrl = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={baseUrl}>
-          <Router />
-        </WouterRouter>
+        <Home />
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
