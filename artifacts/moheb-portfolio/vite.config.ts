@@ -10,7 +10,7 @@ const port = process.env.PORT ? Number(process.env.PORT) : 5000;
 const basePath = process.env.BASE_PATH || './';
 
 export default defineConfig({
-  base: basePath,
+  base: '/<Portfolio>/',
   plugins: [
     react(),
     tailwindcss(),
