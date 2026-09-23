@@ -10,11 +10,26 @@ import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 const queryClient = new QueryClient();
 
 const usp =
-  'I build high-performance, modern Flutter applications that bridge the gap between stunning visual aesthetics and frictionless user experience. Drawing from complex projects like a dynamic e-library with multi-state form validation and real-time cloud sync, I ensure your users never feel lost—delivering high-reliability mobile solutions that startups and growing businesses can trust from day one.';
+  'I architect Flutter applications with clean, scalable state management — not just screens that look good, but systems that hold up under real users and real data. From Firebase-backed auth to real-time cloud sync, I ship mobile products startups can trust from day one.';
 
-const programmingLanguages = ['Dart', 'Java', 'C++', 'Python', 'JavaScript', 'PHP', 'SQL', 'HTML5', 'CSS3'];
-const frameworksAndTools = ['Flutter', 'Firebase Auth', 'Cloud Firestore', 'Git', 'GitHub', 'Android Studio', 'VS Code'];
+const coreStack = ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore'];
+const csFoundations = ['C++', 'Java', 'Python', 'SQL', 'JavaScript'];
+const toolsAndVersionControl = ['Git', 'GitHub'];
 const projectBadges = ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'Android Studio', 'Git/GitHub'];
+const projectHighlights = [
+  {
+    label: 'Architecture & UI',
+    body: 'Scalable Flutter architecture separating views, data models (Book), reusable UI components, and global themes — with custom typography (google_fonts) and vector assets (flutter_svg) across 7+ dynamic categories.',
+  },
+  {
+    label: 'Auth & Cloud Sync',
+    body: 'Robust authentication flows and real-time data sync via Firebase Auth and Cloud Firestore, backed by custom form fields with floating overlay error validation and an animated loading state.',
+  },
+  {
+    label: 'PDF & Search',
+    body: 'Production-grade in-app reading via syncfusion_flutter_pdfviewer, paired with real-time search filtering for fast, seamless catalog discovery.',
+  },
+];
 const galleryItems = [
   {
     label: 'Splash screen',
@@ -112,7 +127,7 @@ function Home() {
           </a>
           <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
             {navigationItems.map((item) => (
-              <a
+              
                 key={item.id}
                 href={`#${item.id}`}
                 className={`nav-link mono text-[11px] uppercase tracking-[.11em] ${activeSection === item.id ? 'active' : ''}`}
@@ -146,24 +161,24 @@ function Home() {
         )}
       </header>
 
-      <section id="home" className="relative flex min-h-[760px] items-end overflow-hidden pb-20 pt-36 md:min-h-[860px] md:pb-28" data-testid="section-home">
+      <section id="home" className="relative flex min-h-[680px] items-end overflow-hidden pb-20 pt-36 md:min-h-[760px] md:pb-24" data-testid="section-home">
         <div className="hero-grid absolute inset-0" />
         <div className="hero-glow" />
          {/* Portrait drop-in: add /portfolio-project-images/profile.jpg in the hero avatar frame below when ready. */}
         <div className="container-wide relative z-[1]">
           <div className="eyebrow reveal delay-1">Flutter developer / software engineering student</div>
-          <h1 className="hero-title display mt-8 max-w-5xl font-semibold reveal delay-2" data-testid="text-hero-title">
+          <h1 className="hero-title display mt-8 max-w-4xl font-semibold reveal delay-2" data-testid="text-hero-title">
             Building apps<br />
             <span className="outlined">people can</span><br />
             <span className="accent">trust.</span>
           </h1>
-          <div className="mt-10 grid max-w-5xl gap-8 border-t border-[#8b9fb7]/20 pt-6 md:grid-cols-[1fr_1.4fr] md:items-end reveal delay-3">
-            <p className="mono max-w-[260px] text-[11px] leading-6 text-[#8ea3ba]" data-testid="text-hero-kicker">
+          <div className="mt-8 flex max-w-3xl flex-col gap-6 border-t border-[#8b9fb7]/20 pt-6 reveal delay-3">
+            <p className="mono text-[11px] uppercase tracking-[.1em] text-[#8ea3ba]" data-testid="text-hero-kicker">
               High-reliability mobile work for startups and growing businesses.
             </p>
             <p className="max-w-2xl text-base leading-7 text-[#b3c1d2] md:text-lg md:leading-8" data-testid="text-hero-usp">{usp}</p>
           </div>
-          <div className="mt-10 flex flex-wrap gap-3 reveal delay-4">
+          <div className="mt-8 flex flex-wrap gap-3 reveal delay-4">
             <a href="#projects" className="solid-button" data-testid="button-view-project">
                View Cosmic Library <ArrowDownRight size={15} />
             </a>
@@ -171,7 +186,7 @@ function Home() {
                Get in Touch <ArrowUpRight size={15} />
             </a>
           </div>
-          <div className="mt-20 flex items-center gap-3 text-[#627991] reveal delay-4">
+          <div className="mt-14 flex items-center gap-3 text-[#627991] reveal delay-4">
             <span className="h-9 w-px bg-[#55c9ff]" />
             <span className="mono text-[10px] uppercase tracking-[.15em]">Scroll to explore</span>
           </div>
@@ -179,35 +194,35 @@ function Home() {
       </section>
 
       <section id="about" className="container-wide scroll-mt-24 py-28 md:py-40" data-testid="section-about">
-        <div className="grid gap-14 md:grid-cols-[.82fr_1.18fr] md:gap-24">
+        <div className="section-label">01 / About me</div>
+        <h2 className="section-title display mt-7 max-w-md font-medium">About Me</h2>
+        <div className="mt-12 grid gap-10 md:grid-cols-[.34fr_.66fr] md:gap-16">
           <div className="reveal-on-scroll">
-            <div className="section-label">01 / About me</div>
-            <h2 className="section-title display mt-7 max-w-md font-medium">About Me</h2>
-            <div className="profile-card mt-12">
+            <div className="profile-card">
                {/* Portrait drop-in: add the image at /portfolio-project-images/profile.jpg when ready. */}
-{ <img
-   className="profile-placeholder"
-   src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpeg`}
-   alt="Moheb Yasser"
- />               }
-              </div>
+              <img
+                className="profile-placeholder"
+                src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpeg`}
+                alt="Moheb Yasser"
+              />
+            </div>
           </div>
-          <div className="self-end reveal-on-scroll md:pb-2">
+          <div className="reveal-on-scroll">
             <p className="display text-2xl leading-[1.35] tracking-[-.035em] text-[#dbe8f4] md:text-3xl" data-testid="text-about-intro">
-               Hello I&apos;am Moheb Yasser.
+               Hello, I&apos;m Moheb Yasser.
             </p>
             <div className="mt-7 space-y-5 text-[15px] leading-8 text-[#9aa8bc]" data-testid="text-about-body">
-               <p>I am a Flutter Developer and a Software Engineering student at Modern Academy, Graduation: May 2028.</p>
-               <p>I believe an application can have the cleanest code and the most stunning modern theme in the world, but if the user feels lost, the system has failed. That is why my core philosophy as a developer is rooted in empathy and proactive UX guidance.</p>
-               <p>When I built Cosmic I Book—a dynamic mobile e-library featuring real-time cloud sync and document rendering—I focused heavily on designing intuitive UI flows, custom floating error validation bubbles, and understandable hints that guide the user every step of the way. If a user doesn&apos;t instantly know what to do next, the code isn&apos;t finished yet.</p>
-               <p>Behind every user-friendly interface is a foundation of rigorous engineering discipline. As a Computer Science student at Modern Academy with a 3.44 GPA, I ground my development work in core computer science theory.</p>
-               <p>However, I believe my true technical edge comes from problem-solving: having solved over 117+ algorithmic problems in C++ on CodeForces, I approach every mobile architecture challenge, state-management hurdle, and database pipeline with analytical precision and high reliability.</p>
-               <p>Whether you are a startup or a growing company looking to turn a complex idea into a high-performance, user-centric mobile application, I am here to deliver. Ready to start a project? Let&apos;s connect! Send me an email at <a className="blue underline decoration-[#55c9ff]/40 underline-offset-4" href="mailto:mohebyasser280@gmail.com">mohebyasser280@gmail.com</a> with your project vision.</p>
+               <p>I&apos;m a Flutter developer who cares about the system behind the screen as much as the screen itself. Building Cosmic I Book — a mobile e-library with real-time cloud sync and in-app document rendering — meant designing clean state management, intuitive UI flows, and proactive UX guidance so users are never left guessing what to do next.</p>
+               <p>That product sense is backed by a Computer Science foundation from Modern Academy (3.44 GPA) and 117+ algorithmic problems solved in C++ on CodeForces. I bring that same analytical discipline to every architecture decision, state-management hurdle, and database pipeline I touch.</p>
             </div>
             <div className="mt-10 grid gap-5 border-t border-[#8b9fb7]/17 pt-6 sm:grid-cols-2">
               <div><div className="mono text-[10px] uppercase tracking-[.13em] text-[#6d839b]">Focus</div><div className="mt-2 text-sm text-[#d6e1ed]">Mobile product engineering</div></div>
               <div><div className="mono text-[10px] uppercase tracking-[.13em] text-[#6d839b]">Approach</div><div className="mt-2 text-sm text-[#d6e1ed]">Clarity over complexity</div></div>
             </div>
+            <p className="mt-8 text-sm leading-7 text-[#9aa8bc]">
+              Ready to start a project? Send me an email at{' '}
+              <a className="blue underline decoration-[#55c9ff]/40 underline-offset-4" href="mailto:mohebyasser280@gmail.com">mohebyasser280@gmail.com</a> with your project vision.
+            </p>
           </div>
         </div>
       </section>
@@ -218,14 +233,19 @@ function Home() {
             <div className="section-label">02 / Featured project</div>
             <h2 className="section-title display mt-7 font-medium">One deep build.</h2>
           </div>
-          <a href="https://github.com/Moheb-yasser/cosmic-library" target="_blank" rel="noreferrer" className="outline-button" data-testid="link-project-github">
-            View on GitHub <Github size={15} />
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a href="#contact" className="solid-button" data-testid="button-project-live-demo">
+              Live Demo / Download APK <ArrowUpRight size={15} />
+            </a>
+            <a href="https://github.com/Moheb-yasser/cosmic-library" target="_blank" rel="noreferrer" className="outline-button" data-testid="link-project-github">
+              View on GitHub <Github size={15} />
+            </a>
+          </div>
         </div>
 
         <article className="project-panel mt-12 overflow-hidden reveal-on-scroll" data-testid="card-project-cosmic-library">
           <div className="grid lg:grid-cols-[1.03fr_.97fr]">
-            <div className="project-visual flex items-center justify-center gap-2 px-5 py-16 sm:gap-4 sm:px-10">
+            <div className="project-visual relative flex items-center justify-center gap-2 px-5 py-16 sm:gap-4 sm:px-10">
               {galleryItems.map((item, index) => (
                  <div key={item.src} className={`device ${index === 0 || index === 4 ? 'hidden sm:block' : ''}`} data-testid={`frame-gallery-${index}`}>
                   <div className="device-screen">
@@ -240,7 +260,14 @@ function Home() {
               <div>
                 <div className="mono text-[10px] uppercase tracking-[.16em] text-[#55c9ff]">Co-Developer · Feb 2026 – Apr 2026</div>
                 <h3 className="display mt-5 text-4xl font-medium leading-none tracking-[-.06em] text-[#edf6fc] sm:text-5xl">Cosmic I Book<br /><span className="text-[#92a8bd]">— Mobile E-Library</span></h3>
-                 <p className="mt-7 text-[15px] leading-7 text-[#aab9c9]">Engineered a scalable Flutter application separating views, data models (Book), reusable UI components, and global themes, integrating custom typography via google_fonts and vector assets (flutter_svg) to support a catalog of 7+ dynamic categories. Implemented robust user authentication workflows and real-time cloud data synchronization using Firebase Auth and Cloud Firestore. Designed custom form fields with dynamic floating overlay error validation bubbles and an animated loading indicator. Integrated production-grade document packages (syncfusion_flutter_pdfviewer) for seamless in-app digital reading alongside real-time search filtering.</p>
+                <ul className="mt-7 space-y-4 text-[15px] leading-7 text-[#aab9c9]" data-testid="list-project-highlights">
+                  {projectHighlights.map((highlight) => (
+                    <li key={highlight.label} className="flex gap-3">
+                      <Check size={16} className="mt-1 shrink-0 text-[#55c9ff]" />
+                      <span><span className="font-medium text-[#d9e8f3]">{highlight.label}:</span> {highlight.body}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <div className="mt-10">
                 <div className="role-line text-sm leading-6 text-[#d9e8f3]">Moheb&apos;s core role: Flutter application development, responsive UI implementation, authentication flows, and cloud-backed state management.</div>
@@ -270,12 +297,16 @@ function Home() {
           </div>
           <div className="reveal-on-scroll">
             <div className="skill-card">
-              <div className="mb-5 flex items-center justify-between gap-4"><span className="mono text-[11px] uppercase tracking-[.13em] text-[#55c9ff]">01</span><h3 className="display text-xl text-[#e4edf5]">Programming Languages</h3></div>
-              <div className="skill-list">{programmingLanguages.map((skill) => <span key={skill} data-testid={`skill-language-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{skill}</span>)}</div>
+              <div className="mb-5 flex items-center justify-between gap-4"><span className="mono text-[11px] uppercase tracking-[.13em] text-[#55c9ff]">01</span><h3 className="display text-xl text-[#e4edf5]">Core Stack</h3></div>
+              <div className="skill-list">{coreStack.map((skill) => <span key={skill} data-testid={`skill-core-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{skill}</span>)}</div>
             </div>
             <div className="skill-card">
-              <div className="mb-5 flex items-center justify-between gap-4"><span className="mono text-[11px] uppercase tracking-[.13em] text-[#55c9ff]">02</span><h3 className="display text-xl text-[#e4edf5]">Frameworks &amp; Tools</h3></div>
-              <div className="skill-list">{frameworksAndTools.map((skill) => <span key={skill} data-testid={`skill-tool-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{skill}</span>)}</div>
+              <div className="mb-5 flex items-center justify-between gap-4"><span className="mono text-[11px] uppercase tracking-[.13em] text-[#55c9ff]">02</span><h3 className="display text-xl text-[#e4edf5]">CS Foundations &amp; Languages</h3></div>
+              <div className="skill-list">{csFoundations.map((skill) => <span key={skill} data-testid={`skill-foundation-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{skill}</span>)}</div>
+            </div>
+            <div className="skill-card">
+              <div className="mb-5 flex items-center justify-between gap-4"><span className="mono text-[11px] uppercase tracking-[.13em] text-[#55c9ff]">03</span><h3 className="display text-xl text-[#e4edf5]">Tools &amp; Version Control</h3></div>
+              <div className="skill-list">{toolsAndVersionControl.map((skill) => <span key={skill} data-testid={`skill-tool-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{skill}</span>)}</div>
             </div>
             <div className="mt-12 flex items-center gap-3 border-l-2 border-[#55c9ff] py-2 pl-4 text-sm text-[#a6b7c8]">
               <Check size={16} className="text-[#55c9ff]" /> Always learning. Always shipping with intent.
