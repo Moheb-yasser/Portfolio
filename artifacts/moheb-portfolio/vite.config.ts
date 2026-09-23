@@ -7,7 +7,7 @@ import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
 const port = process.env.PORT ? Number(process.env.PORT) : 5000;
 
-// Set the base path to /Portfolio/ on GitHub Pages, or '/' in local dev
+// Resolve subpath automatically for GitHub Pages or fallback to /Portfolio/
 const basePath = process.env.GITHUB_REPOSITORY
   ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
   : '/Portfolio/';
