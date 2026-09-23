@@ -187,7 +187,7 @@ function Home() {
                {/* Portrait drop-in: add the image at /portfolio-project-images/profile.jpg when ready. */}
 { <img
    className="profile-placeholder"
-   src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpg`}
+   src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpeg`}
    alt="Moheb Yasser"
  />               }
               </div>
