@@ -1,29 +1,27 @@
-<div className="flex items-center gap-3">
-  {/* Vector Badge Matching Favicon */}
-  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-sky-500/50 bg-[#0f172a] shadow-[0_0_12px_rgba(56,189,248,0.25)] transition-all hover:border-sky-400 hover:shadow-[0_0_18px_rgba(56,189,248,0.4)]">
-    <svg 
-      viewBox="0 0 100 100" 
-      className="h-full w-full p-1"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <text 
-        x="50%" 
-        y="54%" 
-        dominantBaseline="central" 
-        textAnchor="middle" 
-        fill="#38bdf8" 
-        fontFamily="system-ui, -apple-system, sans-serif" 
-        fontWeight="800" 
-        fontSize="40"
-        letterSpacing="-0.5"
-      >
-        MY
-      </text>
-    </svg>
-  </div>
-
-  {/* Brand Name Label */}
-  <span className="text-lg font-bold tracking-tight text-slate-100">
-    Moheb Yasser
-  </span>
-</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Container background & border matching border-[#55c9ff]/60 and bg-[#55c9ff]/10 -->
+  <rect 
+    x="0.5" 
+    y="0.5" 
+    width="31" 
+    height="31" 
+    rx="6" 
+    ry="6" 
+    fill="#0a192f" 
+    stroke="#55c9ff" 
+    stroke-opacity="0.6" 
+    stroke-width="1"
+  />
+  
+  <!-- "MY" initials perfectly centered using dominant-baseline and text-anchor -->
+  <text 
+    x="16" 
+    y="16" 
+    text-anchor="middle" 
+    dominant-baseline="central" 
+    fill="#55c9ff" 
+    font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+    font-weight="600" 
+    font-size="14"
+  >MY</text>
+</svg>
