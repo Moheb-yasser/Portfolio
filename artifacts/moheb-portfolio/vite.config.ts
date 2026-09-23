@@ -5,9 +5,9 @@ import { defineConfig } from 'vite';
 
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
-// Safely resolve PORT and BASE_PATH with fallbacks for GitHub Actions CI
 const port = process.env.PORT ? Number(process.env.PORT) : 5000;
-const basePath = process.env.BASE_PATH || '/Portfolio/';
+// Use relative base path so assets load correctly on any domain or subpath
+const basePath = process.env.BASE_PATH || './';
 
 export default defineConfig({
   base: basePath,
@@ -38,7 +38,7 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, 'dist/public'),
+    outDir: path.resolve(import.meta.dirname, 'dist'),
     emptyOutDir: true,
   },
   server: {
