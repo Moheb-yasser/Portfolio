@@ -34,7 +34,7 @@ jobs:
           version: 9
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
         working-directory: artifacts/moheb-portfolio
 
       - name: Setup Pages
@@ -43,7 +43,7 @@ jobs:
       - name: Build project
         run: |
           pnpm build
-          # Guarantees that GitHub Pages routes all URLs directly into your React app & not-found.tsx component
+          # Guarantees GitHub Pages routes all URLs to your React app & client-side routes
           cp dist/public/index.html dist/public/404.html
         working-directory: artifacts/moheb-portfolio
         env:
