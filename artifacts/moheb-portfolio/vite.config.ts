@@ -6,11 +6,14 @@ import { defineConfig } from 'vite';
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
 const port = process.env.PORT ? Number(process.env.PORT) : 5000;
-// Use relative base path so assets load correctly on any domain or subpath
-const basePath = process.env.BASE_PATH || './';
+
+// Uses /Portfolio/ on GitHub Pages, or '/' locally
+const basePath = process.env.GITHUB_REPOSITORY
+  ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
+  : '/Portfolio/';
 
 export default defineConfig({
-  base: '/<Portfolio>/',
+  base: basePath,
   plugins: [
     react(),
     tailwindcss(),
@@ -38,7 +41,7 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, 'dist'),
+    outDir: path.resolve(import.meta.dirname, 'dist/public'),
     emptyOutDir: true,
   },
   server: {
