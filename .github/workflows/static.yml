@@ -30,18 +30,19 @@ jobs:
         run: pnpm install
         working-directory: artifacts/moheb-portfolio
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: vite
+
       - name: Build
         run: pnpm build
         working-directory: artifacts/moheb-portfolio
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      # THIS IS THE CRITICAL FIX: Point directly to the build output folder
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'artifacts/moheb-portfolio/dist/public'  # Matches outDir in vite.config.ts
+          path: 'artifacts/moheb-portfolio/dist/public'
 
       - name: Deploy to GitHub Pages
         id: deployment
