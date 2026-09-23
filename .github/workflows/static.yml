@@ -51,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './artifacts/moheb-portfolio/dist/public'
+          path: './artifacts/moheb-portfolio/dist/public' # Point directly to your outDir path
 
       - name: Deploy to GitHub Pages
         id: deployment
