@@ -127,7 +127,7 @@ function Home() {
           </a>
           <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
             {navigationItems.map((item) => (
-              
+              <a
                 key={item.id}
                 href={`#${item.id}`}
                 className={`nav-link mono text-[11px] uppercase tracking-[.11em] ${activeSection === item.id ? 'active' : ''}`}
@@ -164,7 +164,6 @@ function Home() {
       <section id="home" className="relative flex min-h-[680px] items-end overflow-hidden pb-20 pt-36 md:min-h-[760px] md:pb-24" data-testid="section-home">
         <div className="hero-grid absolute inset-0" />
         <div className="hero-glow" />
-         {/* Portrait drop-in: add /portfolio-project-images/profile.jpg in the hero avatar frame below when ready. */}
         <div className="container-wide relative z-[1]">
           <div className="eyebrow reveal delay-1">Flutter developer / software engineering student</div>
           <h1 className="hero-title display mt-8 max-w-4xl font-semibold reveal delay-2" data-testid="text-hero-title">
@@ -199,7 +198,6 @@ function Home() {
         <div className="mt-12 grid gap-10 md:grid-cols-[.34fr_.66fr] md:gap-16">
           <div className="reveal-on-scroll">
             <div className="profile-card">
-               {/* Portrait drop-in: add the image at /portfolio-project-images/profile.jpg when ready. */}
               <img
                 className="profile-placeholder"
                 src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpeg`}
@@ -352,6 +350,7 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/:rest*" component={Home} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>
@@ -364,10 +363,11 @@ function RoutedErrorBoundary({ children }: { children: ReactNode }) {
 }
 
 function App() {
+  const baseUrl = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+        <WouterRouter base={baseUrl}>
           <Router />
         </WouterRouter>
         <Toaster />
