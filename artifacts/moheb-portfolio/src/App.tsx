@@ -60,27 +60,27 @@ const cosmicGalleryItems = [
 const geoNotesGalleryItems = [
   {
     label: 'Resolved feed',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/01-resolved-feed.png`,
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/showing_multi_Notes.png`,
     alt: 'Geo Notes main feed displaying note cards with resolved address badges',
   },
   {
     label: 'Map picker',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/02-map-picker.png`,
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/choosing_location_custome_map.jpeg`,
     alt: 'Interactive OpenStreetMap location picker with confirm CTA button',
   },
   {
     label: 'Async loading',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/03-async-loading.png`,
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/writting_note.png`,
     alt: 'Deferred geocoding loading state card displaying a Loading badge',
   },
   {
     label: 'Error handling',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/04-error-retry.png`,
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/if_a_location_failed.jpeg`,
     alt: 'Network timeout fallback card displaying a red Retry action button',
   },
   {
     label: 'Optimistic undo',
-    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/05-optimistic-undo.png`,
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/undo_button_of_delete_single_note.png`,
     alt: 'GetX snackbar notification with Undo action following swipe deletion',
   },
 ];
