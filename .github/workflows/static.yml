@@ -1,4 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
@@ -34,16 +34,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build
+      - name: Build project
         env:
           BASE_PATH: /Portfolio/
           PORT: 5000
         run: pnpm --filter moheb-portfolio run build
+
+      - name: Verify build output
+        run: |
+          if [ -d "./artifacts/moheb-portfolio/dist" ]; then
+            echo "Build output directory exists."
+            ls -la ./artifacts/moheb-portfolio/dist
+          else
+            echo "ERROR: Build directory ./artifacts/moheb-portfolio/dist does not exist!"
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -51,7 +60,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './artifacts/moheb-portfolio/dist/public' # Point directly to your outDir path
+          path: './artifacts/moheb-portfolio/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
