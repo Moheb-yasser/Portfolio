@@ -17,7 +17,7 @@ const frameworksAndTools = [
   'Flutter',
   'SQLite / Floor ORM',
   'GetX',
-  'Firebase Auth',
+  'Firebase Auth', 
   'Cloud Firestore',
   'OpenStreetMap API',
   'Git',
