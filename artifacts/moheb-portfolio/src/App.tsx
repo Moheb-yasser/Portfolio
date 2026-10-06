@@ -1,5 +1,5 @@
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Check, Github, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Check, Github, Linkedin, Mail, Menu, X } from 'lucide-react'; 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
