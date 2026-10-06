@@ -10,16 +10,30 @@ import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 const queryClient = new QueryClient();
 
 const usp =
-  'I build high-performance, modern Flutter applications that bridge the gap between stunning visual aesthetics and frictionless user experience. Drawing from complex projects like a dynamic e-library with multi-state form validation and real-time cloud sync, I ensure your users never feel lost—delivering high-reliability mobile solutions that startups and growing businesses can trust from day one.';
+  'I build high-performance, modern Flutter applications that bridge the gap between stunning visual aesthetics and frictionless user experience. Drawing from complex projects like an offline-first location-aware engine and a dynamic e-library with real-time cloud sync, I ensure your users never feel lost—delivering high-reliability mobile solutions that startups and growing businesses can trust from day one.';
 
 const programmingLanguages = ['Dart', 'Java', 'C++', 'Python', 'JavaScript', 'PHP', 'SQL', 'HTML5', 'CSS3'];
-const frameworksAndTools = ['Flutter', 'Firebase Auth', 'Cloud Firestore', 'Git', 'GitHub', 'Android Studio', 'VS Code'];
-const projectBadges = ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'Android Studio', 'Git/GitHub'];
-const galleryItems = [
+const frameworksAndTools = [
+  'Flutter',
+  'SQLite / Floor ORM',
+  'GetX',
+  'Firebase Auth',
+  'Cloud Firestore',
+  'OpenStreetMap API',
+  'Git',
+  'GitHub',
+  'Android Studio',
+  'VS Code',
+];
+
+const cosmicBadges = ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'Android Studio', 'Git/GitHub'];
+const geoNotesBadges = ['Flutter', 'Dart', 'SQLite', 'Floor ORM', 'GetX', 'OpenStreetMap', 'Geolocator', 'Accelerometer'];
+
+const cosmicGalleryItems = [
   {
     label: 'Splash screen',
     src: `${import.meta.env.BASE_URL}portfolio-project-images/splash-screen.png`,
-    alt: 'Cosmic I Book splash screen with a glowing purple book mark and galaxy background',
+    alt: 'Cosmic I Book splash screen with a glowing purple bookmark and galaxy background',
   },
   {
     label: 'Auth screen',
@@ -42,6 +56,35 @@ const galleryItems = [
     alt: 'Cosmic Archive filtered search view showing Atomic Habits for the query atom',
   },
 ];
+
+const geoNotesGalleryItems = [
+  {
+    label: 'Resolved feed',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/01-resolved-feed.png`,
+    alt: 'Geo Notes main feed displaying note cards with resolved address badges',
+  },
+  {
+    label: 'Map picker',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/02-map-picker.png`,
+    alt: 'Interactive OpenStreetMap location picker with confirm CTA button',
+  },
+  {
+    label: 'Async loading',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/03-async-loading.png`,
+    alt: 'Deferred geocoding loading state card displaying a Loading badge',
+  },
+  {
+    label: 'Error handling',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/04-error-retry.png`,
+    alt: 'Network timeout fallback card displaying a red Retry action button',
+  },
+  {
+    label: 'Optimistic undo',
+    src: `${import.meta.env.BASE_URL}portfolio-project-images/geonotes/05-optimistic-undo.png`,
+    alt: 'GetX snackbar notification with Undo action following swipe deletion',
+  },
+];
+
 const navigationItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
@@ -149,7 +192,6 @@ function Home() {
       <section id="home" className="relative flex min-h-[760px] items-end overflow-hidden pb-20 pt-36 md:min-h-[860px] md:pb-28" data-testid="section-home">
         <div className="hero-grid absolute inset-0" />
         <div className="hero-glow" />
-         {/* Portrait drop-in: add /portfolio-project-images/profile.jpg in the hero avatar frame below when ready. */}
         <div className="container-wide relative z-[1]">
           <div className="eyebrow reveal delay-1">Flutter developer / software engineering student</div>
           <h1 className="hero-title display mt-8 max-w-5xl font-semibold reveal delay-2" data-testid="text-hero-title">
@@ -165,7 +207,7 @@ function Home() {
           </div>
           <div className="mt-10 flex flex-wrap gap-3 reveal delay-4">
             <a href="#projects" className="solid-button" data-testid="button-view-project">
-               View Cosmic Library <ArrowDownRight size={15} />
+               View Featured Projects <ArrowDownRight size={15} />
             </a>
             <a href="#contact" className="outline-button" data-testid="button-hero-contact">
                Get in Touch <ArrowUpRight size={15} />
@@ -184,13 +226,12 @@ function Home() {
             <div className="section-label">01 / About me</div>
             <h2 className="section-title display mt-7 max-w-md font-medium">About Me</h2>
             <div className="profile-card mt-12">
-               {/* Portrait drop-in: add the image at /portfolio-project-images/profile.jpg when ready. */}
-{ <img
-   className="profile-placeholder"
-   src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpeg`}
-   alt="Moheb Yasser"
- />               }
-              </div>
+              <img
+                className="profile-placeholder"
+                src={`${import.meta.env.BASE_URL}portfolio-project-images/profile.jpeg`}
+                alt="Moheb Yasser"
+              />
+            </div>
           </div>
           <div className="self-end reveal-on-scroll md:pb-2">
             <p className="display text-2xl leading-[1.35] tracking-[-.035em] text-[#dbe8f4] md:text-3xl" data-testid="text-about-intro">
@@ -199,9 +240,9 @@ function Home() {
             <div className="mt-7 space-y-5 text-[15px] leading-8 text-[#9aa8bc]" data-testid="text-about-body">
                <p>I am a Flutter Developer and a Software Engineering student at Modern Academy, Graduation: May 2028.</p>
                <p>I believe an application can have the cleanest code and the most stunning modern theme in the world, but if the user feels lost, the system has failed. That is why my core philosophy as a developer is rooted in empathy and proactive UX guidance.</p>
-               <p>When I built Cosmic I Book—a dynamic mobile e-library featuring real-time cloud sync and document rendering—I focused heavily on designing intuitive UI flows, custom floating error validation bubbles, and understandable hints that guide the user every step of the way. If a user doesn&apos;t instantly know what to do next, the code isn&apos;t finished yet.</p>
+               <p>From engineering offline-first architectures like Geo Notes with Floor ORM and OpenStreetMap geocoding to building Cosmic I Book with real-time cloud sync, I focus heavily on designing resilient UI flows and robust data pipelines that guide users seamlessly.</p>
                <p>Behind every user-friendly interface is a foundation of rigorous engineering discipline. As a Computer Science student at Modern Academy with a 3.44 GPA, I ground my development work in core computer science theory.</p>
-               <p>However, I believe my true technical edge comes from problem-solving: having solved over 117+ algorithmic problems in C++ on CodeForces, I approach every mobile architecture challenge, state-management hurdle, and database pipeline with analytical precision and high reliability.</p>
+               <p>Having solved over 117+ algorithmic problems in C++ on CodeForces, I approach every mobile architecture challenge, state-management hurdle, and database pipeline with analytical precision and high reliability.</p>
                <p>Whether you are a startup or a growing company looking to turn a complex idea into a high-performance, user-centric mobile application, I am here to deliver. Ready to start a project? Let&apos;s connect! Send me an email at <a className="blue underline decoration-[#55c9ff]/40 underline-offset-4" href="mailto:mohebyasser280@gmail.com">mohebyasser280@gmail.com</a> with your project vision.</p>
             </div>
             <div className="mt-10 grid gap-5 border-t border-[#8b9fb7]/17 pt-6 sm:grid-cols-2">
@@ -215,37 +256,108 @@ function Home() {
       <section id="projects" className="container-wide scroll-mt-24 py-28 md:py-36" data-testid="section-projects">
         <div className="flex flex-wrap items-end justify-between gap-6 reveal-on-scroll">
           <div>
-            <div className="section-label">02 / Featured project</div>
-            <h2 className="section-title display mt-7 font-medium">One deep build.</h2>
+            <div className="section-label">02 / Featured projects</div>
+            <h2 className="section-title display mt-7 font-medium">Production-grade mobile builds.</h2>
           </div>
-          <a href="https://github.com/Moheb-yasser/cosmic-library" target="_blank" rel="noreferrer" className="outline-button" data-testid="link-project-github">
-            View on GitHub <Github size={15} />
-          </a>
         </div>
 
-        <article className="project-panel mt-12 overflow-hidden reveal-on-scroll" data-testid="card-project-cosmic-library">
+        {/* PROJECT 1: GEO NOTES */}
+        <article className="project-panel mt-12 overflow-hidden reveal-on-scroll" data-testid="card-project-geo-notes">
           <div className="grid lg:grid-cols-[1.03fr_.97fr]">
             <div className="project-visual flex items-center justify-center gap-2 px-5 py-16 sm:gap-4 sm:px-10">
-              {galleryItems.map((item, index) => (
-                 <div key={item.src} className={`device ${index === 0 || index === 4 ? 'hidden sm:block' : ''}`} data-testid={`frame-gallery-${index}`}>
+              {geoNotesGalleryItems.map((item, index) => (
+                <div key={item.src} className={`device ${index === 0 || index === 4 ? 'hidden sm:block' : ''}`} data-testid={`frame-geonotes-gallery-${index}`}>
                   <div className="device-screen">
-                     <img src={item.src} alt={item.alt} loading="lazy" />
+                    <img src={item.src} alt={item.alt} loading="lazy" />
                   </div>
-                   <div className="device-caption">{item.label}</div>
+                  <div className="device-caption">{item.label}</div>
+                </div>
+              ))}
+              <div className="absolute bottom-5 left-6 mono text-[9px] uppercase tracking-[.15em] text-[#5f7992]">Geo Notes / system study</div>
+            </div>
+            <div className="flex flex-col justify-between p-7 sm:p-10 lg:p-12">
+              <div>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="mono text-[10px] uppercase tracking-[.16em] text-[#55c9ff]">Solo Developer · Sep 2026 – Oct 2026</div>
+                  <a href="https://github.com/Moheb-yasser/Geo-Note" target="_blank" rel="noreferrer" className="outline-button text-xs" data-testid="link-geonotes-github">
+                    GitHub <Github size={14} />
+                  </a>
+                </div>
+                <h3 className="display mt-5 text-4xl font-medium leading-none tracking-[-.06em] text-[#edf6fc] sm:text-5xl">
+                  Geo Notes<br /><span className="text-[#92a8bd]">— Location-Aware Engine</span>
+                </h3>
+                <p className="mt-7 text-[15px] leading-7 text-[#aab9c9]">
+                  Developed end-to-end at DEPI under the technical direction of senior architect Eng. Hany El Nemr. Built a high-performance offline-first Flutter application utilizing Floor ORM (SQLite) with pre-seeded database bootstrapping. Engineered a deferred background geolocation pipeline capturing raw GPS coordinates and lazily resolving them to human-readable addresses via OpenStreetMap APIs, preventing UI thread lock and handling network timeouts with resilient retry states. Integrated accelerometer hardware sensors for shake-to-delete gestures paired with reactive GetX state rollbacks.
+                </p>
+              </div>
+              <div className="mt-10">
+                <div className="role-line text-sm leading-6 text-[#d9e8f3]">
+                  Moheb&apos;s core role: Architecture design, SQLite/Floor database engine, asynchronous geocoding pipeline, hardware gesture integration, and GetX state management.
+                </div>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {geoNotesBadges.map((badge) => (
+                    <span className="tag" key={badge} data-testid={`badge-geonotes-${badge.replace(/[^a-zA-Z]/g, '-').toLowerCase()}`}>
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid border-t border-[#8b9fb7]/15 px-7 py-6 sm:grid-cols-[.6fr_1fr] sm:px-10">
+            <div className="mono text-[10px] uppercase tracking-[.16em] text-[#6f849b]">Mentorship &amp; Track</div>
+            <div className="mt-4 sm:mt-0">
+              <div className="team-row">
+                <span className="text-sm text-[#55c9ff]">Moheb Yasser</span>
+                <span className="mono text-[10px] text-[#758da6]">Solo Mobile Architect</span>
+              </div>
+              <div className="team-row">
+                <span className="text-sm text-[#dce7f1]">Eng. Hany El Nemr</span>
+                <span className="mono text-[10px] text-[#758da6]">Technical Direction (20+ YOE)</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {/* PROJECT 2: COSMIC I BOOK */}
+        <article className="project-panel mt-16 overflow-hidden reveal-on-scroll" data-testid="card-project-cosmic-library">
+          <div className="grid lg:grid-cols-[1.03fr_.97fr]">
+            <div className="project-visual flex items-center justify-center gap-2 px-5 py-16 sm:gap-4 sm:px-10">
+              {cosmicGalleryItems.map((item, index) => (
+                <div key={item.src} className={`device ${index === 0 || index === 4 ? 'hidden sm:block' : ''}`} data-testid={`frame-gallery-${index}`}>
+                  <div className="device-screen">
+                    <img src={item.src} alt={item.alt} loading="lazy" />
+                  </div>
+                  <div className="device-caption">{item.label}</div>
                 </div>
               ))}
               <div className="absolute bottom-5 left-6 mono text-[9px] uppercase tracking-[.15em] text-[#5f7992]">Cosmic I Book / interface study</div>
             </div>
             <div className="flex flex-col justify-between p-7 sm:p-10 lg:p-12">
               <div>
-                <div className="mono text-[10px] uppercase tracking-[.16em] text-[#55c9ff]">Co-Developer · Feb 2026 – Apr 2026</div>
-                <h3 className="display mt-5 text-4xl font-medium leading-none tracking-[-.06em] text-[#edf6fc] sm:text-5xl">Cosmic I Book<br /><span className="text-[#92a8bd]">— Mobile E-Library</span></h3>
-                 <p className="mt-7 text-[15px] leading-7 text-[#aab9c9]">Engineered a scalable Flutter application separating views, data models (Book), reusable UI components, and global themes, integrating custom typography via google_fonts and vector assets (flutter_svg) to support a catalog of 7+ dynamic categories. Implemented robust user authentication workflows and real-time cloud data synchronization using Firebase Auth and Cloud Firestore. Designed custom form fields with dynamic floating overlay error validation bubbles and an animated loading indicator. Integrated production-grade document packages (syncfusion_flutter_pdfviewer) for seamless in-app digital reading alongside real-time search filtering.</p>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="mono text-[10px] uppercase tracking-[.16em] text-[#55c9ff]">Co-Developer · Feb 2026 – Apr 2026</div>
+                  <a href="https://github.com/Moheb-yasser/cosmic-library" target="_blank" rel="noreferrer" className="outline-button text-xs" data-testid="link-project-github">
+                    GitHub <Github size={14} />
+                  </a>
+                </div>
+                <h3 className="display mt-5 text-4xl font-medium leading-none tracking-[-.06em] text-[#edf6fc] sm:text-5xl">
+                  Cosmic I Book<br /><span className="text-[#92a8bd]">— Mobile E-Library</span>
+                </h3>
+                <p className="mt-7 text-[15px] leading-7 text-[#aab9c9]">
+                  Engineered a scalable Flutter application separating views, data models (Book), reusable UI components, and global themes, integrating custom typography via google_fonts and vector assets (flutter_svg) to support a catalog of 7+ dynamic categories. Implemented robust user authentication workflows and real-time cloud data synchronization using Firebase Auth and Cloud Firestore. Designed custom form fields with dynamic floating overlay error validation bubbles and an animated loading indicator. Integrated production-grade document packages (syncfusion_flutter_pdfviewer) for seamless in-app digital reading alongside real-time search filtering.
+                </p>
               </div>
               <div className="mt-10">
-                <div className="role-line text-sm leading-6 text-[#d9e8f3]">Moheb&apos;s core role: Flutter application development, responsive UI implementation, authentication flows, and cloud-backed state management.</div>
+                <div className="role-line text-sm leading-6 text-[#d9e8f3]">
+                  Moheb&apos;s core role: Flutter application development, responsive UI implementation, authentication flows, and cloud-backed state management.
+                </div>
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {projectBadges.map((badge) => <span className="tag" key={badge} data-testid={`badge-project-${badge.replace(/[^a-zA-Z]/g, '-').toLowerCase()}`}>{badge}</span>)}
+                  {cosmicBadges.map((badge) => (
+                    <span className="tag" key={badge} data-testid={`badge-project-${badge.replace(/[^a-zA-Z]/g, '-').toLowerCase()}`}>
+                      {badge}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
