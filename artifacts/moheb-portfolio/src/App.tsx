@@ -349,3 +349,112 @@ function Home() {
                 </p>
               </div>
               <div className="mt-10">
+                <div className="role-line text-sm leading-6 text-[#d9e8f3]">
+                  Moheb's core role: Flutter application development, responsive UI implementation, authentication flows, and cloud-backed state management.
+                </div>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {cosmicBadges.map((badge) => (
+                    <span className="tag" key={badge} data-testid={`badge-project-${badge.replace(/[^a-zA-Z]/g, '-').toLowerCase()}`}>
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid border-t border-[#8b9fb7]/15 px-7 py-6 sm:grid-cols-[.6fr_1fr] sm:px-10">
+            <div className="mono text-[10px] uppercase tracking-[.16em] text-[#6f849b]">Three-person team</div>
+            <div className="mt-4 sm:mt-0">
+              <div className="team-row"><span className="text-sm text-[#dce7f1]">Menna Hamada</span><span className="mono text-[10px] text-[#758da6]">Co-developer</span></div>
+              <div className="team-row"><span className="text-sm text-[#55c9ff]">Moheb Yasser</span><span className="mono text-[10px] text-[#758da6]">Core Flutter / cloud</span></div>
+              <div className="team-row"><span className="text-sm text-[#dce7f1]">Hussain Farooq</span><span className="mono text-[10px] text-[#758da6]">Co-developer</span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="skills" className="container-wide scroll-mt-24 py-28 md:py-36" data-testid="section-skills">
+        <div className="grid gap-12 md:grid-cols-[.7fr_1.3fr] md:gap-28">
+          <div className="reveal-on-scroll">
+            <div className="section-label">03 / Toolkit</div>
+            <h2 className="section-title display mt-7 font-medium">The tools<br />behind the calm.</h2>
+            <p className="mt-7 max-w-xs text-sm leading-7 text-[#8fa3b8]">A practical stack for shaping robust mobile products, from first wireframe to production handoff.</p>
+          </div>
+          <div className="reveal-on-scroll">
+            <div className="skill-card">
+              <div className="mb-5 flex items-center justify-between gap-4"><span className="mono text-[11px] uppercase tracking-[.13em] text-[#55c9ff]">01</span><h3 className="display text-xl text-[#e4edf5]">Programming Languages</h3></div>
+              <div className="skill-list">{programmingLanguages.map((skill) => <span key={skill} data-testid={`skill-language-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{skill}</span>)}</div>
+            </div>
+            <div className="skill-card">
+              <div className="mb-5 flex items-center justify-between gap-4"><span className="mono text-[11px] uppercase tracking-[.13em] text-[#55c9ff]">02</span><h3 className="display text-xl text-[#e4edf5]">Frameworks &amp; Tools</h3></div>
+              <div className="skill-list">{frameworksAndTools.map((skill) => <span key={skill} data-testid={`skill-tool-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>{skill}</span>)}</div>
+            </div>
+            <div className="mt-12 flex items-center gap-3 border-l-2 border-[#55c9ff] py-2 pl-4 text-sm text-[#a6b7c8]">
+              <Check size={16} className="text-[#55c9ff]" /> Always learning. Always shipping with intent.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="container-wide scroll-mt-24 py-28 md:py-40" data-testid="section-contact">
+        <div className="contact-box grid gap-14 p-7 sm:p-10 md:grid-cols-[.92fr_1.08fr] md:gap-20 md:p-14 reveal-on-scroll">
+          <div>
+            <div className="section-label">04 / Contact</div>
+            <h2 className="section-title display mt-7 font-medium">Get In Touch</h2>
+            <p className="mt-6 text-xl leading-8 text-[#d7e4ef]" data-testid="text-contact-subtext">Let's build something exceptional together.</p>
+            <div className="mt-12 space-y-5">
+              <a href="mailto:mohebyasser280@gmail.com" className="group flex items-center gap-3 text-sm text-[#a8bbcd] transition-colors hover:text-[#55c9ff]" data-testid="link-contact-email"><Mail size={16} className="text-[#55c9ff]" /> mohebyasser280@gmail.com <ArrowUpRight size={14} className="opacity-50 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a>
+              <a href="https://www.linkedin.com/in/moheb-yasser" target="_blank" rel="noreferrer" className="group flex items-center gap-3 text-sm text-[#a8bbcd] transition-colors hover:text-[#55c9ff]" data-testid="link-contact-linkedin"><Linkedin size={16} className="text-[#55c9ff]" /> linkedin.com/in/moheb-yasser <ArrowUpRight size={14} className="opacity-50 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a>
+              <a href="https://github.com/Moheb-yasser" target="_blank" rel="noreferrer" className="group flex items-center gap-3 text-sm text-[#a8bbcd] transition-colors hover:text-[#55c9ff]" data-testid="link-contact-github"><Github size={16} className="text-[#55c9ff]" /> github.com/Moheb-yasser <ArrowUpRight size={14} className="opacity-50 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a>
+            </div>
+          </div>
+          <form onSubmit={handleContactSubmit} className="space-y-7" data-testid="form-contact">
+            {sent && <div className="success-note" role="status" data-testid="status-contact-success">Your message is ready to send. Your email client should open now.</div>}
+            <label className="block"><span className="form-label">Name</span><input required name="name" className="field" placeholder="What should I call you?" data-testid="input-contact-name" /></label>
+            <label className="block"><span className="form-label">Email</span><input required type="email" name="email" className="field" placeholder="you@company.com" data-testid="input-contact-email" /></label>
+            <label className="block"><span className="form-label">Message</span><textarea required name="message" rows={4} className="field resize-none" placeholder="Tell me what you are building..." data-testid="input-contact-message" /></label>
+            <button type="submit" className="solid-button w-full sm:w-auto" data-testid="button-submit-contact">Prepare email <ArrowUpRight size={15} /></button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="container-wide border-t border-[#8b9fb7]/15 pb-8 pt-12" data-testid="footer">
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
+          <div><div className="eyebrow">Available for meaningful builds</div><div className="footer-mark display mt-4">MOHEB<br />YASSER</div></div>
+          <div className="flex flex-col items-start gap-4 md:items-end"><a href="#home" className="mono text-[10px] uppercase tracking-[.14em] text-[#8ca2b8] hover:text-[#55c9ff]" data-testid="link-footer-top">Back to top ↑</a><span className="mono text-[10px] text-[#536b84]">© {new Date().getFullYear()} / built with care</span></div>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+function Router() {
+  return (
+    <RoutedErrorBoundary>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </RoutedErrorBoundary>
+  );
+}
+
+function RoutedErrorBoundary({ children }: { children: ReactNode }) {
+  const [location] = useLocation();
+  return <ErrorBoundary resetKey={location}>{children}</ErrorBoundary>;
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+          <Router />
+        </WouterRouter>
+        <Toaster />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
